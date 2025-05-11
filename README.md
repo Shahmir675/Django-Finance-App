@@ -1,5 +1,4 @@
-# Tradehub (Trade App) (Crypto - Stocks Trade Logger with Average Cost Calculator)
-![Cover image](./assets/images/django-tradehub-cover.webp)
+# Django Finance App
 
 ## Project Description
 A trading app designed for users who want to track the average costs of their assets, such as cryptocurrencies and stocks, through a dashboard with graphical support, and keep a log of their transaction history.
