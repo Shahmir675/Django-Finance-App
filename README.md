@@ -89,12 +89,12 @@ To get started with this project, follow these steps:
 
 **Step 1**: Clone the project
 ```bash
-git clone https://github.com/oskaygunacar/django-finance-app.git
+git clone https://github.com/Shahmir675/Django-Finance-App.git
 ```
 
 **Step 2**: Navigate to the directory
 ```bash
-cd django-finance-app
+cd Django-Finance-App
 ```
 
 **Step 3**: Create and activate a virtual environment
@@ -136,24 +136,3 @@ python manage.py runserver
 ## Contributing
 
 Contributions to improve the project are welcome. Please follow the standard fork-and-pull request workflow.
-
-
-## App Images:
-### Homepage
-![Homepage](./assets/images/homepage.png)
-### Homepage Authenticated
-![Homepage Authenticated](./assets/images/homepage-authenticated.png)
-### Login Page of the App
-![Login page](./assets/images/login.png)
-### Signup Page of the App
-![Signup page](./assets/images/signup.png)
-### Profile Actions on Site Navbar
-![Profile Actions](./assets/images/profile-actions.png)
-### Asset Category Dashboard
-![Asset Category Dashboard](./assets/images/asset-category-dashboard.png)
-### Add New Asset Transaction Page
-![Add New Asset Transaction](./assets/images/add-new-asset-transaction.png)
-### Asset Detail / Dashboard
-![Asset Detail / Dashboard](./assets/images/asset-dashboard-detail.png)
-### API Token Landing Page
-![API Token Landing Page](./assets/images/api-token-landing-page.png)
