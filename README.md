@@ -1,6 +1,5 @@
 # Django Finance App
 
-## Project Description
 A trading app designed for users who want to track the average costs of their assets, such as cryptocurrencies and stocks, through a dashboard with graphical support, and keep a log of their transaction history.
 
 ## Features
