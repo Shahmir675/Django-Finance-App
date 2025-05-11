@@ -1,0 +1,73 @@
+{%extends 'base.html'%}
+{%load static%}
+{% load custom_filters %}
+
+{%block pagecss%} 
+<link rel="stylesheet" href="{%static 'tradehub/css/asset.css'%}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{%endblock%}
+
+{%block content%}
+<div class="container">
+    <h1 class="text-center">
+        {{asset.name.upper}}
+    </h1>
+    <div id="newAssetLog"><a href="/asset/add-new-transcation/{{asset.slug}}/">Add New {{asset.name.upper}} Transaction</a></div>
+    <div class="assetStats">
+        <span class="assetStat" data-value="{{asset.amount|format_decimal}}" id="amount"><b>Asset Amounth:</b> {{asset.amount|format_decimal}}</span>
+        <span class="assetStat" data-value="{{asset.cost|format_decimal|format_cost}}" id="cost"> <b>Asset Total Cost ($):</b> {{asset.cost|format_decimal|format_cost}}</span>
+        <span class="assetStat" data-value="{{asset.ort_usd|format_decimal}}" id="average_cost"> <b>Asset Average Cost (per) ($):</b> {{asset.ort_usd|format_decimal}}</span>
+    </div>
+    <a href="" target-url="/{{asset.slug}}/delete-asset-logs/" id="deleteLogsBtn">Delete Log</a>
+    <div id="errorDiv"></div>
+    <div id="csrf">
+        {%csrf_token%}
+    </div>
+    <div class="assetsDashboard">
+        <div class="assets">
+            <table class="assetTranscationTable">
+                <thead>
+                    <tr class="tableHeading">
+                        <th></th>
+                        <th>Type</th>
+                        <th>Transaction Time</th>
+                        <th>{{asset.name.upper}} Amounth</th>
+                        <th>Total Cost ($)</th>
+                        <th>Average Cost ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{logs}}
+                    {% include 'tradehub/components/paginationUI.html' with logs=logs%}
+                    {%for log in logs %}
+                    <tr class="tableBody">
+                        <td><input type="checkbox" name="checkbox" id="logCheckBox" row-id="{{log.id}}"></td>
+                        <td>
+                            {%if log.transaction_type == 'buy' %}
+                            <iconify-icon icon="simple-icons:buefy"></iconify-icon>
+                            {%elif log.transaction_type == 'sell' %}
+                            <iconify-icon icon="simple-icons:sellfy"></iconify-icon>
+                            {%endif%}
+                        </td>
+                        <td>{{log.transcation_time}}</td>
+                        <td>{{log.total_amount|format_decimal}}</td>
+                        <td>{{log.total_cost|format_decimal|format_cost}}</td>
+                        <td>{{log.ort_usd|floatformat:4|format_decimal}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>    
+    </div>
+    <h2 class="text-center mt-5">Asset Per Cost Performance</h2>
+    <div class="assetGraph">
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+    {# Average Cost Graph #}
+    {% include 'tradehub/components/graph.html' with data=data label=label%}
+</div>
+{%endblock%}
+
+{%block pagescript%}
+<script src="{%static 'tradehub/js/asset.js'%}"></script>
+{%endblock%}

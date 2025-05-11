@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block pagecss%} <link rel="stylesheet" href="{%static 'tradehub/css/assetListing.css'%}"> {%endblock%}
+
+{%block content%}
+<div class="container">
+    <h1 class="text-center">
+        {{title}} Assets
+    </h1>
+    <div id="addNewAsset"><a href="/{{category.slug}}/add-new-asset/">Add New {{title}} Asset</a></div>
+    <a href="" target-url="/{{category.slug}}/delete-asset/" id="deleteLogsBtn">Delete Asset</a>
+    <div id="csrf">
+        {%csrf_token%}
+    </div>
+    <div class="assetsDashboard">
+        <div class="assets">
+            {% for asset in assets%}
+                {%if asset%}
+                <div class="assetInput">
+                    <input type="checkbox" name="" id="assetCheckBox" row-data="{{asset.name}}">
+                    <div class="asset"><a href="{{asset.get_absolute_url}}">{% if asset.asset_image%}<img src="{{asset.asset_image.url}}" alt="{{asset.name}}" class="assetIMG" width="35px">{%endif%} {{asset.name}}</a>
+                    </div>
+                </div>
+                {%endif%}
+            {%endfor%}
+        </div>    
+    </div>
+</div>
+{%endblock%}
+
+{%block pagescript%}
+<script src="{%static 'tradehub/js/assetListing.js'%}"></script>
+{%endblock%}

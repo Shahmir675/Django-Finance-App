@@ -1,0 +1,188 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.assetStats {
+    margin-top:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.assetStats span.assetStat{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #6ab26b;
+    padding: 16px;
+    border-radius: 15px;
+    font-weight: 900;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.assetsDashboard {
+    background-color: #131212;
+    border-radius: 15px;
+    width: 800px;
+    margin-top:20px;
+}
+
+.assetsDashboard .assets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #131212;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.assetsDashboard .asset table {
+    background-color: #131212;
+}
+
+.tableHeading {
+    border-bottom: 1px solid #2d2d2d;
+}
+
+.tableHeading th {
+    border-right: 1px solid #2d2d2d;
+    padding: 10px;
+}
+
+.tableHeading th:last-child {
+    border-right:none !important;
+}
+
+.tableBody td {
+    text-align: center;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    border-right: 1px solid #2d2d2d;
+    padding: 5px;
+}
+
+.tableBody td:last-child {
+    border-right:none;
+}
+
+#newAssetLog {
+    margin-right:auto;
+}
+
+#newAssetLog a {
+    margin-bottom:25px;
+    background-color: #6ab26b;
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-weight: 600;
+}
+
+.assetGraph {
+    width: 400px !important;
+}
+
+#deleteLogsBtn {
+    background-color: #ff0000;
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-weight: 700;
+    margin-left: auto;
+    margin-top:10px;
+}
+
+.assetGraph {
+    margin-bottom:50px;
+}
+
+.pagination {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.page-item a {
+    padding: 4px 6px;
+    color: white;
+    background-color: #6ab26b;
+    border: 0.5px solid #ffffff;
+    margin-right: 2px;
+    max-width: 50px;
+    font-size: 16px;
+}
+.page-item a:hover {
+    color: white;
+    background-color: #6ab26b;
+}
+
+.mt-5 {
+    margin-top:50px;
+}
+
+@media screen and (max-width: 1000px) {
+    #newAssetLog a{
+        font-size:13px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .assetsDashboard {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .assetsDashboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    table {
+        width: 100% !important;
+    }
+
+    .assetsDashboard .assets {
+        font-size: 12px;
+    }
+
+    .assetsDashboard .asset {
+        border-right: none !important;
+    }
+    
+    .assetStats {
+        flex-direction: column;
+    }
+
+    .assetStats span.assetStat{
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .assetsDashboard .assets {
+        padding:3px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #myChart{
+        width: 320px !important;
+        height: auto;
+        margin:0 auto;
+    }
+
+    #errorDiv {
+        margin-top:20px;
+    }
+}
